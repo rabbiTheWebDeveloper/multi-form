@@ -1,0 +1,1 @@
+export const baseUrl='https://career.softitdev.xyz/api/v1/job';
