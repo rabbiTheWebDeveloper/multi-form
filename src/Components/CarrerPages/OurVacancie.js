@@ -11,7 +11,7 @@ const OurVacancie = () => {
 
     useEffect(() => {
 
-        axios.get("https://sitcdev.xyz/api/v1/job/list").then(({data})=>{
+        axios.get("https://career.softitdev.xyz/api/v1/job/list").then(({data})=>{
 
             setJobList(data.data);
 
@@ -44,40 +44,51 @@ const OurVacancie = () => {
 
                     {/* Content */}
                     <div className="OurVacancieContent">
+                    {jobList.length ===0 ? <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                          </div>:
+                          <>
 
                         <Row>
+                      
+                     
 
-                            {
+                                {
 
-                                jobList.map((item, key)=>(
+                                    jobList.map((item, key)=>(
 
-                                    <Col sm={4} key={key}>
+                                        <Col sm={4} key={key}>
 
-                                        <div className="OurVacancieItem">
-                                            
-                                            <div className="text">
-                                                <h3>{item.title}</h3>
-                                                <ul>
-                                                    <li> <span>Salary:</span>{item.salary_type=="negotiable" ? item.salary_type: " BDT "+item.min_salary +" - BDT " +item.max_salary} </li>
-                                                    <li> <span>Experience:</span> {item.experience}</li>
-                                                </ul>
+                                            <div className="OurVacancieItem">
+                                                
+                                                <div className="text">
+                                                    <h3>{item.title}</h3>
+                                                    <ul>
+                                                        <li> <span>Salary:</span> {item.salary_type==="negotiable" ?  "Negotiable" : " BDT "+item.min_salary +" - BDT " +item.max_salary} </li>
+                                                        <li> <span>Experience:</span> {item.experience}</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="view_details">
+                                                    <Link to={'/carrer-details/'+ item.id} className='bg'>View Details</Link>
+                                                </div>
+
                                             </div>
 
-                                            <div className="view_details">
-                                                <Link to={'/carrer-details/'+ item.id} className='bg'>View Details</Link>
-                                            </div>
+                                        </Col>
 
-                                        </div>
+                                    ))
 
-                                    </Col>
-
-                                ))
-
-                            }
-
+                                }
+                            
                             
 
                         </Row>
+                        </>
+                    }
+
 
                     </div>
                     

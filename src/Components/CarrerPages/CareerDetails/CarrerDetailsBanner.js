@@ -9,7 +9,7 @@ const CarrerDetailsBanner = () => {
   const [jobDetails, setJobDetails] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    const url = `https://sitcdev.xyz/api/v1/job/${id}`;
+    const url = `https://career.softitdev.xyz/api/v1/job/${id}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -30,7 +30,9 @@ const CarrerDetailsBanner = () => {
 
   return (
     <>
-      <section className="CarrerBanner CarrerDetailsBanner">
+    
+      <section className="CarrerBanner CarrerDetailsBanner
+      mt-4">
         <Container>
           <Row className="d_flex">
             <Col xs={12} lg={5}>
@@ -44,11 +46,11 @@ const CarrerDetailsBanner = () => {
                   </li>
                   <li>
                     <span>Deadline:</span>
-                    {deadline}
+                    {deadline?deadline.slice(0, 10): ""}
                   </li>
                   <li>
                     <span>Published On:</span>
-                    {created_at}
+                    {created_at?created_at.slice(0, 10): []}
                   </li>
                   <li>
                     <span>Vacancy:</span>
@@ -73,8 +75,7 @@ const CarrerDetailsBanner = () => {
                     <span>Office Time:</span>09:30 AM - 06:00 PM
                   </li>
                   <li>
-                    <span>Location:</span>Level: 5, House: 32/34, Road: 07,
-                    Block: C, Niketan, Gulshan – 1, Dhaka – 1212
+                    <span>Location:</span>SAR Bhaban, Level-5, Ka-78, Pragati Sarani, Kuril, Vatara, 1229 Dhaka, Bangladesh
                   </li>
                 </ul>
               </div>
@@ -95,7 +96,10 @@ const CarrerDetailsBanner = () => {
       <WhoWeAre></WhoWeAre>
 
       <VacancyDetails text={details}></VacancyDetails>
-      <Row>
+      
+      <div >
+        <Container>
+        <Row>
         <Col sm={12}>
           <div className="VacancyDetailContent">
             <div className="VacancyDetailItem">
@@ -108,6 +112,8 @@ const CarrerDetailsBanner = () => {
           </div>
         </Col>
       </Row>
+        </Container>
+      </div>
 
       <div className="section_gaps"></div>
     </>

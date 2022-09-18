@@ -54,7 +54,7 @@ const Footer = () => {
                                 <div className="FooterItem left">
 
                                     <div className="img">
-                                        <img src="assets/images/footer_logo.png" alt="" />
+                                        <img src="../assets/images/footer_logo.png" alt="" />
                                     </div>
 
                                     <p>Our mantra is to bring an evolution in the business world providing top-class services and game changing innovations.</p>
@@ -101,7 +101,7 @@ const Footer = () => {
 
                                             <div className="text">
                                                 <h4>Head Office</h4>
-                                                <p>Level: 5, House: 32/34, Road: 07, Block: C, Niketan, Gulshan – 1, Dhaka – 1212</p>
+                                                <p>SAR Bhaban, Level-5 , Ka-78, Pragati Sarani, Kuril, Vatara, 1229 Dhaka, Dhaka Division, Bangladesh</p>
                                             </div>
 
                                         </div>

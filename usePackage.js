@@ -4,3 +4,4 @@
 // 4. npm install react-player
 // 5. npm install swiper
 // 6. npm install axios
+// npm i react-toastify

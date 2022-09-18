@@ -2,13 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const OtherInfoForm = ({
-  formData,
-  setFormData,
-  page,
-  setPage,
-  FormTitles,
-}) => {
+const OtherInfoForm = ({info, setInfo,page,setPage,FormTitles,handleSubmission}) => {
   return (
     <>
       <section className="PersonalInfoForm">
@@ -28,14 +22,12 @@ const OtherInfoForm = ({
                     <div className="CustomeInput">
                       <label htmlFor="">Your Expected Salary</label>
                       <input
-                        type="text"
+                        type="number"
                         placeholder="Your Expected Salary"
-                        value={formData.expected_salary}
+                        name="expected_salary"
+                        value={info.expected_salary}
                         onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            expected_salary: e.target.value
-                          });
+                          setInfo({ ...info, expected_salary: e.target.value });
                         }}
                       />
                     </div>
@@ -48,6 +40,11 @@ const OtherInfoForm = ({
                       <input
                         type="text"
                         placeholder="Your Portfolio Link/Github Link"
+                        name="portfolio_or_github_link"
+                        value={info.portfolio_or_github_link}
+                        onChange={(e) => {
+                          setInfo({ ...info, portfolio_or_github_link: e.target.value });
+                        }}
                       />
                     </div>
 
@@ -57,12 +54,10 @@ const OtherInfoForm = ({
                       <input
                         type="text"
                         placeholder="Your Other Work/Project Links"
-                        value={formData.project_link}
+                        name="project_link"
+                        value={info.project_link}
                         onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            project_link: e.target.value
-                          });
+                          setInfo({ ...info, project_link: e.target.value });
                         }}
                       />
                     </div>
@@ -73,12 +68,10 @@ const OtherInfoForm = ({
                       <input
                         type="text"
                         placeholder="Your LinkedIn Profile Link"
-                        value={formData.linkedIn_profile_link}
+                        name="linkedIn_profile_link"
+                        value={info.linkedIn_profile_link}
                         onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            linkedIn_profile_link: e.target.value
-                          });
+                          setInfo({ ...info, linkedIn_profile_link: e.target.value });
                         }}
                       />
                     </div>
@@ -88,16 +81,14 @@ const OtherInfoForm = ({
                       <label htmlFor="">What Makes You Fit For This Job</label>
                       <textarea
                         
-                        name=""
+                      
                         rows="5"
                         placeholder="Write What Makes You Fit For This Job"
-                        value={formData.why_fit_for_job}
-                        onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            why_fit_for_job:e.target.value
-                          });
-                        }}
+                        name="why_fit_for_job"
+                        value={info.why_fit_for_job}
+        onChange={(e) => {
+          setInfo({ ...info, why_fit_for_job: e.target.value });
+        }}
                       ></textarea>
                     </div>
 
@@ -115,14 +106,16 @@ const OtherInfoForm = ({
                           </button>
                           <button
                             className="bg getLocation"
-                            onClick={() => {
-                              if (page === FormTitles.length - 1) {
-                                alert("FORM SUBMITTED");
-                                console.log(formData);
-                              } else {
-                                setPage((currPage) => currPage + 1);
-                              }
-                            }}
+                            onClick={handleSubmission}
+                            // onSubmit={handelSubmit}
+                            // onClick={() => {
+                            //   if (page === FormTitles.length - 1) {
+                            //     alert("FORM SUBMITTED");
+                            //     console.log(formData);
+                            //   } else {
+                            //     setPage((currPage) => currPage + 1);
+                            //   }
+                            // }}
                           >
                             {page === FormTitles.length - 1 ? "Submit" : "Next"}
                           </button>

@@ -4,7 +4,7 @@ import Footer from '../Components/Commons/Footer';
 import PersonalInfoForm from '../Components/CarrerPages/JobApplication/PersonalInfoForm';
 
 
-const CarrerPersonalInfo = () => {
+const CarrerPersonalInfo = ({info, setInfo,handleFile,page,setPage,FormTitles}) => {
 
 
     return (
@@ -16,7 +16,7 @@ const CarrerPersonalInfo = () => {
 
                 <Menubar active='career'></Menubar>
 
-                <PersonalInfoForm></PersonalInfoForm>
+                <PersonalInfoForm handleFile={handleFile}  page={page} setPage={setPage}  FormTitles={FormTitles}  info={info} setInfo={setInfo}></PersonalInfoForm>
 
                 <Footer></Footer>
 

@@ -3,7 +3,7 @@ import Menubar from '../Components/Commons/Menubar';
 import Footer from '../Components/Commons/Footer';
 import OtherInfoForm from '../Components/CarrerPages/JobApplication/OtherInfoForm';
 
-const CarrerOtherInfo = () => {
+const CarrerOtherInfo = ({info, setInfo,page,setPage,FormTitles,handleSubmission}) => {
 
 
     return (
@@ -15,7 +15,7 @@ const CarrerOtherInfo = () => {
 
                 <Menubar active='career'></Menubar>
 
-                <OtherInfoForm></OtherInfoForm>
+                <OtherInfoForm page={page} setPage={setPage}  FormTitles={FormTitles}  info={info} setInfo={setInfo} handleSubmission={handleSubmission} ></OtherInfoForm>
 
                 <Footer></Footer>
 

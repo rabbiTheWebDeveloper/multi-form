@@ -2,14 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const PersonalInfoForm = ({
-  formData,
-  setFormData,
-  page,
-  setPage,
-  FormTitles,
-  handleFileChange,
-}) => {
+const PersonalInfoForm = ({info, setInfo,handleFile,page,setPage,FormTitles}) => {
   return (
     <>
       <section className="PersonalInfoForm">
@@ -21,7 +14,7 @@ const PersonalInfoForm = ({
               <Col sm={12}>
                 <div className="PersonalInfoFormContent">
                   <h2 className="text-center">
-                    Job Application For “Senior Software Engineer”
+                    Job Application For “Senior Software Engineer” {FormTitles[0]}
                   </h2>
 
                   <div className="FormItem">
@@ -31,13 +24,11 @@ const PersonalInfoForm = ({
                       <input
                         type="text"
                         placeholder="Full name"
-                        value={formData.full_name}
-                        onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            full_name: e.target.value,
-                          });
-                        }}
+                        name="full_name"
+          value={info.full_name}
+        onChange={(e) => {
+          setInfo({ ...info, full_name: e.target.value });
+        }}
                       />
                     </div>
 
@@ -45,15 +36,13 @@ const PersonalInfoForm = ({
                     <div className="CustomeInput">
                       <label htmlFor="">Email Address</label>
                       <input
-                        type="text"
+                        type="email"
                         placeholder="you@company.com"
-                        value={formData.email_address}
-                        onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            email_address: e.target.value,
-                          });
-                        }}
+                        name="email_address"
+                        value={info.email_address}
+        onChange={(e) => {
+          setInfo({ ...info, email_address: e.target.value });
+        }}
                       />
                     </div>
 
@@ -61,14 +50,12 @@ const PersonalInfoForm = ({
                     <div className="CustomeInput">
                       <label htmlFor="">Phone number</label>
                       <input
-                        type="text"
+                        type="number"
                         placeholder="+1 (555) 000-0000"
-                        value={formData.phone_number}
+                        name="phone_number"
+                        value={info.phone_number}
                         onChange={(e) => {
-                          setFormData({
-                            ...formData,
-                            phone_number: e.target.value,
-                          });
+                          setInfo({ ...info, phone_number: e.target.value });
                         }}
                       />
                     </div>
@@ -78,7 +65,10 @@ const PersonalInfoForm = ({
                       <label htmlFor="">Upload CV</label>
                       <input
                         type="file"
-                        onChange={handleFileChange}
+                        name="file"
+                        onChange={handleFile}
+                        
+                          
                      
                       />
                     </div>
@@ -115,7 +105,7 @@ const PersonalInfoForm = ({
                             onClick={() => {
                               if (page === FormTitles.length - 1) {
                                 alert("FORM SUBMITTED");
-                                console.log(formData);
+                                // console.log(formData);
                               } else {
                                 setPage((currPage) => currPage + 1);
                               }
